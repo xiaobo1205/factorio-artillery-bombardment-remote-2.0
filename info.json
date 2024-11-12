@@ -1,12 +1,13 @@
 {
-    "name": "artillery-bombardment-remote",
+    "name": "artillery-bombardment-remote-2.0",
     "version": "2.0.0",
-    "title": "Artillery Bombardment Remote",
-    "author": "Shane Madden",
-    "homepage": "https://github.com/shanemadden/factorio-artillery-bombardment-remote",
+    "title": "Artillery Bombardment Remote 2.0",
+    "author": "Bo Xiao",
+    "homepage": "https://github.com/xiaobo1205/factorio-artillery-bombardment-remote-2.0",
     "factorio_version": "2.0",
     "dependencies": [
         "base >= 2.0"
     ],
-    "description": "Directs your artillery to bombard a selected area without having to target individual shots"
+    "description": "Directs your artillery to bombard a selected area without having to target individual shots. Update to 2.0 from the original shanemadden/factorio-artillery-bombardment-remote"
 }
+s
