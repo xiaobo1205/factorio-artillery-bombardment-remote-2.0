@@ -174,8 +174,8 @@ local function on_player_selected_area(event)
                 local artillery_chunk_position = position_to_chunk(entity.position)
                 local artillery_chunk_id = chunk_to_chunkid(artillery_chunk_position.x, artillery_chunk_position.y)
                 log(artillery_chunk_id)
-                if not global.fabr.chunks[artillery_chunk_id] then
-                    global.fabr.chunks[artillery_chunk_id] = {
+                if not storage.fabr.chunks[artillery_chunk_id] then
+                    storage.fabr.chunks[artillery_chunk_id] = {
                         force = force,
                         surface = surface,
                         i = 1,
@@ -490,15 +490,15 @@ end
 script.on_event(defines.events.on_gui_closed, on_gui_closed)
 
 local function on_init(event)
-    global.fabr = {}
-    global.fabr.chunks = {}
+    storage.fabr = {}
+    storage.fabr.chunks = {}
 end
 script.on_init(on_init)
 
 local function on_configuration_changed(event)
-    if not global.fabr then
-        global.fabr = {}
-        global.fabr.chunks = {}
+    if not storage.fabr then
+        storage.fabr = {}
+        storage.fabr.chunks = {}
     end
 end
 script.on_configuration_changed(on_configuration_changed)
@@ -507,8 +507,8 @@ local function on_nth_tick()
     -- on_tick handler for iterating over artillery turrets to mark max distance flares
     -- currently limited to 3 points every 5 ticks to reduce UPS loss
     -- currently processes the first chunk id in the available chunks list
-    if next(global.fabr.chunks) ~= nil then
-        local chunkid, data = next(global.fabr.chunks)
+    if next(storage.fabr.chunks) ~= nil then
+        local chunkid, data = next(storage.fabr.chunks)
         --log(serpent.block(chunkid))
         --log(serpent.block(data))
 
@@ -544,14 +544,14 @@ local function on_nth_tick()
         -- remove finished artillery positions
         if data.i + 1 >= 360 then
             data = nil
-            global.fabr.chunks[chunkid] = nil
+            storage.fabr.chunks[chunkid] = nil
         else
             data.i = data.i + 3
         end
     end
 
-    if global.fabr.chunks ~= nil then
-        for chunkid, data in pairs(global.fabr.chunks) do
+    if storage.fabr.chunks ~= nil then
+        for chunkid, data in pairs(storage.fabr.chunks) do
         end
     end
 end
