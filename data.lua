@@ -67,31 +67,34 @@ local exploration_item = {
 
 local recipe = {
   type = 'recipe',
+  category = 'crafting'
   name = 'artillery-bombardment-remote',
   enabled = false,
   ingredients = {
-    {'artillery-targeting-remote', 5},
-    {'satellite', 1}
+    {type='item', name='artillery-targeting-remote', amount=5},
+    {type='item', name='satellite', amount=1}
   },
   result = 'artillery-bombardment-remote'
 }
 
 local smart_recipe = {
   type = 'recipe',
+  category = 'crafting'
   name = 'smart-artillery-bombardment-remote',
   enabled = false,
   ingredients = {
-    {'artillery-bombardment-remote', 5}
+    {type='item', name='artillery-bombardment-remote', amount=5}
   },
   result = 'smart-artillery-bombardment-remote'
 }
 
 local exploration_recipe = {
   type = 'recipe',
+  category = 'crafting'
   name = 'smart-artillery-exploration-remote',
   enabled = false,
   ingredients = {
-    {'smart-artillery-bombardment-remote', 5}
+    {type='item', name='smart-artillery-bombardment-remote', amount=5}
   },
   result = 'smart-artillery-exploration-remote'
 }
