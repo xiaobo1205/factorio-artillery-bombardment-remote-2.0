@@ -80,7 +80,7 @@ local recipe = {
   name = 'artillery-bombardment-remote',
   enabled = false,
   ingredients = {
-    {type='item', name='artillery-targeting-remote', amount=5},
+    {type='item', name='radar', amount=5},
     {type='item', name='satellite', amount=1}
   },
   results = {
