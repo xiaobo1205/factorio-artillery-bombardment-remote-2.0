@@ -5,19 +5,22 @@ local item = {
   order = 'zzz[artillery-bombardment-remote]',
   icons = {
     {
-      icon = '__artillery-bombardment-remote__/graphics/icons/artillery-bombardment-remote.png',
+      icon = '__artillery-bombardment-remote-2__/graphics/icons/artillery-bombardment-remote.png',
       icon_size = 32
     }
   },
+  select = {
+    border_color = {r = 1, g = 0.28, b = 0, a = 1},
+    cursor_box_type = 'entity',
+    mode = {'enemy'}
+  },
+  alt_select = {
+    border_color = {r = 0, g = 0, b = 1, a = 1},
+    cursor_box_type = 'entity',
+    mode = {'enemy'}
+  },
   flags = {'mod-openable'},
-  stack_size = 1,
-  stackable = false,
-  selection_color = {r = 1, g = 0.28, b = 0, a = 1},
-  alt_selection_color = {r = 0, g = 0, b = 1, a = 1},
-  selection_mode = {'enemy'},
-  alt_selection_mode = {'enemy'},
-  selection_cursor_box_type = 'entity',
-  alt_selection_cursor_box_type = 'entity'
+  stack_size = 1
 }
 
 local smart_item = {
@@ -27,19 +30,22 @@ local smart_item = {
   order = 'zzz[smart-artillery-bombardment-remote]',
   icons = {
     {
-      icon = '__artillery-bombardment-remote__/graphics/icons/smart-artillery-bombardment-remote.png',
+      icon = '__artillery-bombardment-remote-2__/graphics/icons/smart-artillery-bombardment-remote.png',
       icon_size = 32
     }
   },
+  select = {
+    border_color = {r = 1, g = 0.28, b = 0, a = 1},
+    cursor_box_type = 'entity',
+    mode = {'enemy'}
+  },
+  alt_select = {
+    border_color = {r = 0, g = 0, b = 1, a = 1},
+    cursor_box_type = 'entity',
+    mode = {'enemy'}
+  },
   flags = {'mod-openable'},
-  stack_size = 1,
-  stackable = false,
-  selection_color = {r = 1, g = 0.28, b = 0, a = 1},
-  alt_selection_color = {r = 0, g = 0, b = 1, a = 1},
-  selection_mode = {'enemy'},
-  alt_selection_mode = {'enemy'},
-  selection_cursor_box_type = 'entity',
-  alt_selection_cursor_box_type = 'entity'
+  stack_size = 1
 }
 
 local exploration_item = {
@@ -49,19 +55,22 @@ local exploration_item = {
   order = 'zzz[smart-artillery-exploration-remote]',
   icons = {
     {
-      icon = '__artillery-bombardment-remote__/graphics/icons/smart-artillery-exploration-remote.png',
+      icon = '__artillery-bombardment-remote-2__/graphics/icons/smart-artillery-exploration-remote.png',
       icon_size = 32
     }
   },
+  select = {
+    border_color = {r = 1, g = 0.28, b = 0, a = 1},
+    cursor_box_type = 'entity',
+    mode = {'same-force'}
+  },
+  alt_select = {
+    border_color = {r = 0, g = 0, b = 1, a = 1},
+    cursor_box_type = 'entity',
+    mode = {'enemy'}
+  },
   flags = {},
   stack_size = 1,
-  stackable = false,
-  selection_color = {r = 1, g = 0.28, b = 0, a = 1},
-  alt_selection_color = {r = 0, g = 0, b = 1, a = 1},
-  selection_mode = {'same-force'},
-  alt_selection_mode = {'enemy'},
-  selection_cursor_box_type = 'entity',
-  alt_selection_cursor_box_type = 'entity',
   entity_filters = {'artillery-turret', 'artillery-wagon'}
 }
 
@@ -135,7 +144,7 @@ technology.order = 'd-e-f-y'
 table.insert(
   technology.icons,
   {
-    icon = '__artillery-bombardment-remote__/graphics/icons/artillery-bombardment-remote.png',
+    icon = '__artillery-bombardment-remote-2__/graphics/icons/artillery-bombardment-remote.png',
     icon_size = 32,
     scale = 2,
     shift = {98, 98}
@@ -156,7 +165,7 @@ smart_technology.order = 'd-e-f-z'
 table.insert(
   smart_technology.icons,
   {
-    icon = '__artillery-bombardment-remote__/graphics/icons/smart-artillery-bombardment-remote.png',
+    icon = '__artillery-bombardment-remote-2__/graphics/icons/smart-artillery-bombardment-remote.png',
     icon_size = 32,
     scale = 2,
     shift = {98, 98}
@@ -177,7 +186,7 @@ exploration_technology.order = 'd-e-f-z'
 table.insert(
   exploration_technology.icons,
   {
-    icon = '__artillery-bombardment-remote__/graphics/icons/smart-artillery-exploration-remote.png',
+    icon = '__artillery-bombardment-remote-2__/graphics/icons/smart-artillery-exploration-remote.png',
     icon_size = 32,
     scale = 2,
     shift = {98, 98}
