@@ -52,7 +52,7 @@ local smart_item = {
     cursor_box_type = 'entity',
     mode = {'enemy'}
   },
-  flags = {'mod-openable'},
+  flags = {'mod-openable', 'spawnable'},
   stack_size = 1
 }
 
@@ -84,7 +84,7 @@ local exploration_item = {
     cursor_box_type = 'entity',
     mode = {'enemy'}
   },
-  flags = {},
+  flags = {'spawnable'},
   stack_size = 1,
   entity_filters = {'artillery-turret', 'artillery-wagon'}
 }
