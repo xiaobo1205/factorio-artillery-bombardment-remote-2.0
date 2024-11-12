@@ -67,7 +67,7 @@ local exploration_item = {
 
 local recipe = {
   type = 'recipe',
-  category = 'crafting'
+  category = 'crafting',
   name = 'artillery-bombardment-remote',
   enabled = false,
   ingredients = {
@@ -79,7 +79,7 @@ local recipe = {
 
 local smart_recipe = {
   type = 'recipe',
-  category = 'crafting'
+  category = 'crafting',
   name = 'smart-artillery-bombardment-remote',
   enabled = false,
   ingredients = {
@@ -90,7 +90,7 @@ local smart_recipe = {
 
 local exploration_recipe = {
   type = 'recipe',
-  category = 'crafting'
+  category = 'crafting',
   name = 'smart-artillery-exploration-remote',
   enabled = false,
   ingredients = {
