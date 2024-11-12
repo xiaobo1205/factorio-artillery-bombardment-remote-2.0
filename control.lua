@@ -168,7 +168,7 @@ local function on_player_selected_area(event)
         )
         if artillery ~= nil then
             -- get artillery range, multiply by bonus, minus 2/3rds of a chunk for accuracy
-            local artillery_range = (game.item_prototypes['artillery-wagon-cannon'].attack_parameters.range) * (1 + game.players[event.player_index].force.artillery_range_modifier) * 2.5 - (2 * 32 / 3)
+            local artillery_range = (prototypes.item['artillery-wagon-cannon'].attack_parameters.range) * (1 + game.players[event.player_index].force.artillery_range_modifier) * 2.5 - (2 * 32 / 3)
             -- for each artillery turret, add it's chunk to the storage list
             for _, entity in ipairs(artillery) do
                 local artillery_chunk_position = position_to_chunk(entity.position)
