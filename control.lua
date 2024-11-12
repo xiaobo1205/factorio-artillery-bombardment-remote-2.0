@@ -42,10 +42,10 @@ end
 
 local function on_player_selected_area(event)
     if event.item == 'artillery-bombardment-remote' then
-        if not global[event.player_index] then
-            global[event.player_index] = {}
+        if not storage[event.player_index] then
+            storage[event.player_index] = {}
         end
-        local settings = global[event.player_index]
+        local settings = storage[event.player_index]
         local surface = game.players[event.player_index].surface
         local force = game.players[event.player_index].force
         local count = 0
@@ -75,10 +75,10 @@ local function on_player_selected_area(event)
             end
         end
     elseif event.item == 'smart-artillery-bombardment-remote' then
-        if not global[event.player_index] then
-            global[event.player_index] = {}
+        if not storage[event.player_index] then
+            storage[event.player_index] = {}
         end
-        local settings = global[event.player_index]
+        local settings = storage[event.player_index]
         local surface = game.players[event.player_index].surface
         local force = game.players[event.player_index].force
         local count = 0
@@ -156,7 +156,7 @@ local function on_player_selected_area(event)
         local player = game.players[id]
         local surface = player.surface
         local force = player.force
-        -- Find artillery in selection area, add it's chunk to the global list
+        -- Find artillery in selection area, add it's chunk to the storage list
         -- Have on_tick handler manage the flare markers
         local artillery =
             surface.find_entities_filtered(
@@ -169,7 +169,7 @@ local function on_player_selected_area(event)
         if artillery ~= nil then
             -- get artillery range, multiply by bonus, minus 2/3rds of a chunk for accuracy
             local artillery_range = (game.item_prototypes['artillery-wagon-cannon'].attack_parameters.range) * (1 + game.players[event.player_index].force.artillery_range_modifier) * 2.5 - (2 * 32 / 3)
-            -- for each artillery turret, add it's chunk to the global list
+            -- for each artillery turret, add it's chunk to the storage list
             for _, entity in ipairs(artillery) do
                 local artillery_chunk_position = position_to_chunk(entity.position)
                 local artillery_chunk_id = chunk_to_chunkid(artillery_chunk_position.x, artillery_chunk_position.y)
@@ -211,7 +211,7 @@ script.on_event(defines.events.on_player_alt_selected_area, on_player_alt_select
 local draw_gui_functions = {
     ['artillery-bombardment-remote'] = function(event)
         local player = game.players[event.player_index]
-        local settings = global[event.player_index]
+        local settings = storage[event.player_index]
         local frame =
             player.gui.center.add(
             {
@@ -343,7 +343,7 @@ local draw_gui_functions = {
     end,
     ['smart-artillery-bombardment-remote'] = function(event)
         local player = game.players[event.player_index]
-        local settings = global[event.player_index]
+        local settings = storage[event.player_index]
         local frame =
             player.gui.center.add(
             {
@@ -402,8 +402,8 @@ local draw_gui_functions = {
 
 local function on_mod_item_opened(event)
     if draw_gui_functions[event.item.name] then
-        if not global[event.player_index] then
-            global[event.player_index] = {}
+        if not storage[event.player_index] then
+            storage[event.player_index] = {}
         end
         draw_gui_functions[event.item.name](event)
     end
@@ -412,13 +412,13 @@ script.on_event(defines.events.on_mod_item_opened, on_mod_item_opened)
 
 local gui_change_handlers = {
     artillery_bombardment_x_slider = function(event)
-        local settings = global[event.player_index]
+        local settings = storage[event.player_index]
         event.element.slider_value = math.floor(event.element.slider_value)
         settings.x = event.element.slider_value
         event.element.parent.artillery_bombardment_x_textbox.text = event.element.slider_value
     end,
     artillery_bombardment_x_textbox = function(event)
-        local settings = global[event.player_index]
+        local settings = storage[event.player_index]
         if tonumber(event.element.text) and math.floor(tonumber(event.element.text)) >= 1 then
             settings.x = math.floor(tonumber(event.element.text))
             event.element.parent.artillery_bombardment_x_slider.slider_value = tonumber(event.element.text)
@@ -427,13 +427,13 @@ local gui_change_handlers = {
         end
     end,
     artillery_bombardment_y_slider = function(event)
-        local settings = global[event.player_index]
+        local settings = storage[event.player_index]
         event.element.slider_value = math.floor(event.element.slider_value)
         settings.y = event.element.slider_value
         event.element.parent.artillery_bombardment_y_textbox.text = event.element.slider_value
     end,
     artillery_bombardment_y_textbox = function(event)
-        local settings = global[event.player_index]
+        local settings = storage[event.player_index]
         if tonumber(event.element.text) and math.floor(tonumber(event.element.text)) >= 1 then
             settings.y = math.floor(tonumber(event.element.text))
             event.element.parent.artillery_bombardment_y_slider.slider_value = tonumber(event.element.text)
@@ -442,13 +442,13 @@ local gui_change_handlers = {
         end
     end,
     artillery_bombardment_column_slider = function(event)
-        local settings = global[event.player_index]
+        local settings = storage[event.player_index]
         event.element.slider_value = math.floor(event.element.slider_value)
         settings.col_count = event.element.slider_value
         event.element.parent.artillery_bombardment_column_textbox.text = event.element.slider_value
     end,
     artillery_bombardment_column_textbox = function(event)
-        local settings = global[event.player_index]
+        local settings = storage[event.player_index]
         if tonumber(event.element.text) and math.floor(tonumber(event.element.text)) >= 1 then
             settings.col_count = math.floor(tonumber(event.element.text))
             event.element.parent.artillery_bombardment_column_slider.slider_value = tonumber(event.element.text)
@@ -457,13 +457,13 @@ local gui_change_handlers = {
         end
     end,
     artillery_bombardment_radius_slider = function(event)
-        local settings = global[event.player_index]
+        local settings = storage[event.player_index]
         event.element.slider_value = math.floor(event.element.slider_value)
         settings.radius = event.element.slider_value
         event.element.parent.artillery_bombardment_radius_textbox.text = event.element.slider_value
     end,
     artillery_bombardment_radius_textbox = function(event)
-        local settings = global[event.player_index]
+        local settings = storage[event.player_index]
         if tonumber(event.element.text) and math.floor(tonumber(event.element.text)) >= 0 then
             settings.radius = math.floor(tonumber(event.element.text))
             event.element.parent.artillery_bombardment_radius_slider.slider_value = tonumber(event.element.text)
