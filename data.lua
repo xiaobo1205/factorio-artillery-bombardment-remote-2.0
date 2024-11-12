@@ -19,8 +19,16 @@ local item = {
     cursor_box_type = 'entity',
     mode = {'enemy'}
   },
-  flags = {'mod-openable'},
-  stack_size = 1
+  stack_size = 1,
+  flags = { "mod-openable", "spawnable" },
+  hidden = false
+}
+
+local item_shortcut = {
+  type = 'shortcut',
+  name = 'artillery-bombardment-remote-shortcut',
+  action = 'spawn-item',
+  item_to_spawn = 'artillery-bombardment-remote'
 }
 
 local smart_item = {
@@ -48,6 +56,13 @@ local smart_item = {
   stack_size = 1
 }
 
+local smart_item_shortcut = {
+  type = 'shortcut',
+  name = 'smart-artillery-bombardment-remote-shortcut',
+  action = 'spawn-item',
+  item_to_spawn = 'smart-artillery-bombardment-remote'
+}
+
 local exploration_item = {
   type = 'selection-tool',
   name = 'smart-artillery-exploration-remote',
@@ -72,6 +87,13 @@ local exploration_item = {
   flags = {},
   stack_size = 1,
   entity_filters = {'artillery-turret', 'artillery-wagon'}
+}
+
+local exploration_item_shortcut = {
+  type = 'shortcut',
+  name = 'smart-artillery-exploration-remote-shortcut',
+  action = 'spawn-item',
+  item_to_spawn = 'smart-artillery-exploration-remote'
 }
 
 local recipe = {
