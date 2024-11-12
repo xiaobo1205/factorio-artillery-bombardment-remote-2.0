@@ -74,7 +74,9 @@ local recipe = {
     {type='item', name='artillery-targeting-remote', amount=5},
     {type='item', name='satellite', amount=1}
   },
-  result = 'artillery-bombardment-remote'
+  results = {
+    {type='item', name='artillery-bombardment-remote', amount=1}
+  }
 }
 
 local smart_recipe = {
@@ -85,7 +87,9 @@ local smart_recipe = {
   ingredients = {
     {type='item', name='artillery-bombardment-remote', amount=5}
   },
-  result = 'smart-artillery-bombardment-remote'
+  results = {
+    {type='item', name='smart-artillery-bombardment-remote', amount=1}
+  }
 }
 
 local exploration_recipe = {
@@ -96,7 +100,9 @@ local exploration_recipe = {
   ingredients = {
     {type='item', name='smart-artillery-bombardment-remote', amount=5}
   },
-  result = 'smart-artillery-exploration-remote'
+  results = {
+    {type='item', name='smart-artillery-exploration-remote', amount=1}
+  }
 }
 
 local original_tech = table.deepcopy(data.raw.technology['artillery'])
