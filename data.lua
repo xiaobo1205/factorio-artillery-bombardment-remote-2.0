@@ -103,7 +103,9 @@ local recipe = {
   enabled = false,
   ingredients = {
     {type='item', name='radar', amount=5},
-    {type='item', name='satellite', amount=1}
+    {type='item', name='processing-unit', amount=100},
+    {type='item', name='advanced-circuit', amount=200},
+    {type='item', name='electronic-circuit', amount=200}
   },
   results = {
     {type='item', name='artillery-bombardment-remote', amount=1}
