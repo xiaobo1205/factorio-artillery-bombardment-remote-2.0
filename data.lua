@@ -77,14 +77,14 @@ local exploration_item = {
   select = {
     border_color = {r = 1, g = 0.28, b = 0, a = 1},
     cursor_box_type = 'entity',
-    mode = {'same-force'}
+    mode = {'enemy'}
   },
   alt_select = {
     border_color = {r = 0, g = 0, b = 1, a = 1},
     cursor_box_type = 'entity',
     mode = {'enemy'}
   },
-  flags = {'spawnable'},
+  flags = {'mod-openable', 'spawnable'},
   stack_size = 1,
   entity_filters = {'artillery-turret', 'artillery-wagon'}
 }
