@@ -423,7 +423,7 @@ local gui_change_handlers = {
             settings.x = math.floor(tonumber(event.element.text))
             event.element.parent.artillery_bombardment_x_slider.slider_value = tonumber(event.element.text)
         elseif not tonumber(event.element.text) and string.len(event.element.text) > 0 then
-            event.element.text = settings.x or event.element.parent.artillery_bombardment_x_slider.slider_value
+            event.element.text = tostring(settings.x or event.element.parent.artillery_bombardment_x_slider.slider_value)
         end
     end,
     artillery_bombardment_y_slider = function(event)
@@ -438,7 +438,7 @@ local gui_change_handlers = {
             settings.y = math.floor(tonumber(event.element.text))
             event.element.parent.artillery_bombardment_y_slider.slider_value = tonumber(event.element.text)
         elseif not tonumber(event.element.text) and string.len(event.element.text) > 0 then
-            event.element.text = settings.y or event.element.parent.artillery_bombardment_y_slider.slider_value
+            event.element.text = tostring(settings.y or event.element.parent.artillery_bombardment_y_slider.slider_value)
         end
     end,
     artillery_bombardment_column_slider = function(event)
@@ -453,7 +453,7 @@ local gui_change_handlers = {
             settings.col_count = math.floor(tonumber(event.element.text))
             event.element.parent.artillery_bombardment_column_slider.slider_value = tonumber(event.element.text)
         elseif not tonumber(event.element.text) and string.len(event.element.text) > 0 then
-            event.element.text = settings.col_count or event.element.parent.artillery_bombardment_column_slider.slider_value
+            event.element.text = tostring(settings.col_count or event.element.parent.artillery_bombardment_column_slider.slider_value)
         end
     end,
     artillery_bombardment_radius_slider = function(event)
@@ -468,7 +468,7 @@ local gui_change_handlers = {
             settings.radius = math.floor(tonumber(event.element.text))
             event.element.parent.artillery_bombardment_radius_slider.slider_value = tonumber(event.element.text)
         elseif not tonumber(event.element.text) and string.len(event.element.text) > 0 then
-            event.element.text = settings.radius or event.element.parent.artillery_bombardment_radius_slider.slider_value
+            event.element.text = tostring(settings.radius or event.element.parent.artillery_bombardment_radius_slider.slider_value)
         end
     end
 }
