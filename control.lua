@@ -415,7 +415,7 @@ local gui_change_handlers = {
         local settings = storage[event.player_index]
         event.element.slider_value = math.floor(event.element.slider_value)
         settings.x = event.element.slider_value
-        event.element.parent.artillery_bombardment_x_textbox.text = event.element.slider_value
+        event.element.parent.artillery_bombardment_x_textbox.text = tostring(event.element.slider_value)
     end,
     artillery_bombardment_x_textbox = function(event)
         local settings = storage[event.player_index]
@@ -430,7 +430,7 @@ local gui_change_handlers = {
         local settings = storage[event.player_index]
         event.element.slider_value = math.floor(event.element.slider_value)
         settings.y = event.element.slider_value
-        event.element.parent.artillery_bombardment_y_textbox.text = event.element.slider_value
+        event.element.parent.artillery_bombardment_y_textbox.text = tostring(event.element.slider_value)
     end,
     artillery_bombardment_y_textbox = function(event)
         local settings = storage[event.player_index]
@@ -445,7 +445,7 @@ local gui_change_handlers = {
         local settings = storage[event.player_index]
         event.element.slider_value = math.floor(event.element.slider_value)
         settings.col_count = event.element.slider_value
-        event.element.parent.artillery_bombardment_column_textbox.text = event.element.slider_value
+        event.element.parent.artillery_bombardment_column_textbox.text = tostring(event.element.slider_value)
     end,
     artillery_bombardment_column_textbox = function(event)
         local settings = storage[event.player_index]
@@ -460,7 +460,7 @@ local gui_change_handlers = {
         local settings = storage[event.player_index]
         event.element.slider_value = math.floor(event.element.slider_value)
         settings.radius = event.element.slider_value
-        event.element.parent.artillery_bombardment_radius_textbox.text = event.element.slider_value
+        event.element.parent.artillery_bombardment_radius_textbox.text = tostring(event.element.slider_value)
     end,
     artillery_bombardment_radius_textbox = function(event)
         local settings = storage[event.player_index]
